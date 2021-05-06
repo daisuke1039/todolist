@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODOLIST</title>
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <header id="header">
+
+    <h1>
+      <a href="">TODOLIST</a>
+    </h1>
+
+  </header>
+
+  <main>
+
+    <div id="container">
+
+      <ul class="menu" id="js_menu">
+        <li class="menu_item is-choice" data-menu="0">TASK</li>
+        <li class="menu_item" data-menu="1">END</li>
+      </ul>
+
+      <div class="main_wrapper">
+
+        <div class="list_wrapper is-show task_wrapper" data-content="0">
+
+          <div class="task_add">
+            <input class="add_list" type="text" placeholder="ADD LIST">
+            <button class="add_btn"></button>
+          </div>
+
+          <p class="date_text date_mt"></p>
+  
+          <ul class='js_task'>
+
+          </ul>
+
+        </div>
+
+        <div class="list_wrapper end_wrapper" data-content="1">
+
+          <p class="message"></p>
+          <p class="date_text date_mt"></p>
+
+          <ul class="js_end">
+          
+          </ul>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="modal">
+
+    <div class="modal_inner">
+      <p class="mordal_heading">使い方</p>
+
+      <dl class="use_items">
+
+        <div class="use_item">
+          <dt>
+            <span class="m_task">TASK</span>
+          </dt>
+          <dd>タスク一覧</dd>
+        </div>
+
+        <div class="use_item">
+          <dt>
+            <span class="m_end">END</span>
+          </dt>
+          <dd>完了タスク一覧</dd>
+        </div>
+
+        <div class="use_item">
+          <dt>
+            <span>
+              <input class="m_add-list" type="text" placeholder="ADD LIST" disabled>
+            </span>
+          </dt>
+          <dd>タスク新規追加</dd>
+        </div>
+
+        <div class="use_item">
+          <dt>
+            <span class="m_chek"></span>
+          </dt>
+          <dd>タスク完了</dd>
+        </div>
+
+        <div class="use_item">
+          <dt>
+            <span class="m_delete"></span>
+          </dt>
+          <dd>タスク削除</dd>
+        </div>
+
+        
+      </dl>
+
+      <div class="m_btn">
+        <button class="m_close">close</button>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <button class="m_open">open</button>
+
+  <script src="./js/script.js"></script>
+  
+</body>
+</html>
