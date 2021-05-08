@@ -103,6 +103,9 @@ input[type="text"] {
   border-radius: 50px;
   color: inherit;
   font-family: 'Josefin Sans', 'Noto Sans JP' , sans-serif;
+  font-size: 16px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 input[type="text"]:focus {
@@ -110,8 +113,8 @@ input[type="text"]:focus {
 }
 
 .add_list {
-  padding: 1.2em 1.8em;
-  width: 60%;
+  padding: 1em 1.8em;
+  width: 75%;
   letter-spacing: 1.2px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -163,7 +166,7 @@ button:focus {
   position: relative;
   width: 40px;
   height: 40px;
-  margin-left: 20px;
+  margin-left: 10px;
   border-radius: 10px;
   -webkit-box-shadow: -2px -2px 8px white, 3px 3px 8px #a3b1c6;
           box-shadow: -2px -2px 8px white, 3px 3px 8px #a3b1c6;
@@ -344,7 +347,7 @@ button:focus {
 
 .task_item p {
   word-wrap: break-word;
-  padding: .9em 2em;
+  padding: .7em 1.5em;
   font-size: 14px;
   letter-spacing: .1em;
   width: 65%;
@@ -356,11 +359,10 @@ button:focus {
 
 @media (max-width: 767px) {
   .task_item p {
-    width: 66%;
+    width: 68%;
     margin-left: 0;
     margin-right: auto;
     padding: .8em 1em;
-    font-size: 12px;
   }
 }
 
@@ -420,6 +422,12 @@ button:focus {
 
 @media (max-width: 767px) {
   .end_item > li {
+    width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .end_item p {
     width: 80%;
   }
 }
@@ -527,7 +535,7 @@ button:focus {
 }
 
 .m_add-list {
-  padding: 1em 1.2em;
+  padding: .8em 1.2em;
   letter-spacing: 1.2px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -535,6 +543,12 @@ button:focus {
           box-shadow: inset -2px -2px 5px white, inset 2px 2px 5px #a3b1c6;
   font-size: 12px;
   border-radius: 50px;
+}
+
+@media (max-width: 767px) {
+  .m_add-list {
+    padding: .8em 1em;
+  }
 }
 
 .m_chek {
@@ -629,3 +643,4 @@ button:focus {
   right: 10px;
   background-color: #e0e5ec;
 }
+
