@@ -102,9 +102,9 @@
   const $messageText = document.querySelector('.message');
   if( date <= 10 ) {
     $messageText.textContent = 'お疲れさまです';
-  } else if (date > 10 && data <=20 ) {
+  } else if (date > 10 && date <=20 ) {
     $messageText.textContent = '今月も折り返し。お疲れさまです';
-  } else if (date > 20 && data <=31 ) {
+  } else if (date > 20 && date <=31 ) {
     $messageText.textContent = '今月も残り少し。';
   } 
   
