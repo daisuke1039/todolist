@@ -83,30 +83,58 @@
   });
 
   //日付の表示
-  const now =  new Date();
-  const year = now.getFullYear();
-  const months = now.getMonth() + 1;
-  const date = now.getDate();
-  const days = now.getDay();
+  const nowDate =  new Date();
+  const year = nowDate.getFullYear();
+  const months = nowDate.getMonth() + 1;
+  const date = nowDate.getDate();
+  const days = nowDate.getDay();
 
   const getDate = () => {
 
    const month = ["","January","February","March","April","May","June","July","August","September","October","November","December"];
    const day = ["Sun","Mon","Tues","Wednes","Thurs","Fri","Satur"];
 
-   const t = `${month[months]} / ${year}.${months}.${date} (${day[days]})`;
+   const t = `${month[months]} / ${year} . ${months} . ${date} (${day[days]})`;
    return t;
 
   };
 
-  const $messageText = document.querySelector('.message');
-  if( date <= 10 ) {
-    $messageText.textContent = 'お疲れさまです';
-  } else if (date > 10 && date <=20 ) {
-    $messageText.textContent = '今月も折り返し。お疲れさまです';
-  } else if (date > 20 && date <=31 ) {
-    $messageText.textContent = '今月も残り少し。';
-  } 
+  const $ampm = document.querySelector('.ampm');
+  const $hours = document.querySelector('.hours');
+  const $minutes = document.querySelector('.minutes');
+  const $seconds = document.querySelector('.seconds');
+
+  const getTime = () => {
+    const nowTime = new Date()
+    const hours = String(nowTime.getHours()).padStart(2, '0');
+    const minutes = String(nowTime.getMinutes()).padStart(2 , '0');
+    const seconds = String(nowTime.getSeconds()).padStart(2, '0');
+
+    const resetTime = [hours, minutes, seconds]
+    return resetTime;
+  };
+
+  const repeOutputTime = () => {
+    const outputGetTime = getTime();
+
+    $hours.textContent = `${outputGetTime[0] % 12}`;
+    $minutes.textContent = outputGetTime[1];
+    $seconds.textContent = outputGetTime[2];
+
+    if( outputGetTime[0] < 12 ) {
+      $ampm.textContent = 'AM'
+    } else {
+      $ampm.textContent = 'PM'
+    }
+
+    refresh();
+  }
+  
+  const refresh = () => {
+    setTimeout(repeOutputTime, 1000);
+  }
+
+  repeOutputTime();
   
   const $dateText = document.querySelectorAll('.date_text');
   let dateNum = 0;
