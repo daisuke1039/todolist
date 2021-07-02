@@ -8,8 +8,8 @@
   const clickTabMenu = (e) => {
     e.preventDefault();
 
-    const $this =  e.target;
-    const dataTarget = $this.dataset.menu;
+    const _that =  e.target;
+    const dataTarget = _that.dataset.menu;
 
     $menuItem.forEach((item, index) => {
       $content[index].classList.remove('is-show');
@@ -17,7 +17,7 @@
     });
   
     $content[dataTarget].classList.add('is-show');
-    $this.classList.add('is-choice');
+    _that.classList.add('is-choice');
   };
 
   $menuItem.forEach(item => {
@@ -54,22 +54,28 @@
       $taskBody.appendChild($taskDeleteBtn);   
 
       //完了アクション : 追加された要素のCHECKボタンの処理
-      $taskCheckBtn.addEventListener('click', () => {
-        const parentCheckItem = $taskCheckBtn.closest('.task_item');
-        const $endUl = document.querySelector('.js_end');
-        $taskCheckBtn.remove();
-        parentCheckItem.classList.add('end_item');
-        $endUl.insertBefore(parentCheckItem , $endUl.firstChild);
-      });
+      $taskCheckBtn.addEventListener('click', (e) => clickTaskCheck(e));
       
       //削除アクション : 追加された要素のDELETEボタンの処理
-      $taskDeleteBtn.addEventListener('click', () => {
-        const parentDeleteItem = $taskDeleteBtn.closest('.task_item');
-        parentDeleteItem.remove();
-      });
+      $taskDeleteBtn.addEventListener('click', (e) => clickTaskDelete(e));
 
     };
   });
+
+  const clickTaskCheck = e => {
+    const _that = e.target;
+    const parentCheckItem = _that.closest('.task_item');
+    const $endUl = document.querySelector('.js_end');
+    _that.remove();
+    parentCheckItem.classList.add('end_item');
+    $endUl.insertBefore(parentCheckItem , $endUl.firstChild);
+  }
+
+  const clickTaskDelete = e => {
+    const _that = e.target;
+    const parentDeleteItem = _that.closest('.task_item');
+    parentDeleteItem.remove();
+  }
 
   //日付の表示
   const getDate = () => {
