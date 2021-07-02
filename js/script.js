@@ -113,15 +113,9 @@
     } else {
       $ampm.textContent = 'PM'
     }
-
-    refresh();
   }
   
-  const refresh = () => {
-    setTimeout(repeOutputTime, 1000);
-  }
-
-  repeOutputTime();
+  setInterval(repeOutputTime, 1000);
   
   const $dateText = document.querySelectorAll('.date_text');
   
