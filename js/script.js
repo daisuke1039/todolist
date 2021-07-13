@@ -21,7 +21,7 @@
   };
 
   $menuItem.forEach(item => {
-    item.addEventListener('click' , (e) => clickTabMenu(e));
+    item.addEventListener('click' , clickTabMenu);
   });
 
   //TODOLISTの機能
@@ -54,10 +54,10 @@
       $taskBody.appendChild($taskDeleteBtn);   
 
       //完了アクション : 追加された要素のCHECKボタンの処理
-      $taskCheckBtn.addEventListener('click', (e) => clickTaskCheck(e));
+      $taskCheckBtn.addEventListener('click', clickTaskCheck);
       
       //削除アクション : 追加された要素のDELETEボタンの処理
-      $taskDeleteBtn.addEventListener('click', (e) => clickTaskDelete(e));
+      $taskDeleteBtn.addEventListener('click', clickTaskDelete);
 
     };
   });
