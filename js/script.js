@@ -1,34 +1,25 @@
 (() => {
 
-  //タブ切替
-  const $menu = document.querySelector('#js_menu');
-  const $menuItem = $menu.querySelectorAll('[data-menu]');
+  // //タブ切替
+  const $tab = document.querySelector('#js_tab');
+  const $tabItem = $tab.querySelectorAll('.tab_value');
   const $content = document.querySelectorAll('[data-content]');
-
-  const clickTabMenu = (e) => {
-    e.preventDefault();
-
-    const _that =  e.target;
-    const dataTarget = _that.dataset.menu;
-
-    $menuItem.forEach((item, index) => {
-      $content[index].classList.remove('is-show');
-      item.classList.remove('is-choice');
-    });
   
-    $content[dataTarget].classList.add('is-show');
-    _that.classList.add('is-choice');
-  };
+  function clickTab(e) {
+    const _that = e.target;
+    const tabValue = _that.value;
+    $content.forEach( element => element.classList.remove('isShow') );
+    const targetContent = document.querySelector(`[data-content="${tabValue}"]`)
+    targetContent.classList.add('isShow');
+  }
 
-  $menuItem.forEach(item => {
-    item.addEventListener('click' , clickTabMenu);
-  });
+  $tabItem.forEach( item => item.addEventListener('change', clickTab))
 
   //TODOLISTの機能
   const $addBtn = document.querySelector('.add_btn');
 
   $addBtn.addEventListener('click'　, () => {
-    const $addInput = document.querySelector('input');
+    const $addInput = document.querySelector('.add_list');
     if( $addInput.value !== "" ) {
 
       //要素を追加
@@ -62,7 +53,7 @@
     };
   });
 
-  const clickTaskCheck = e => {
+  function clickTaskCheck(e) {
     const _that = e.target;
     const parentCheckItem = _that.closest('.task_item');
     const $endUl = document.querySelector('.js_end');
@@ -71,14 +62,16 @@
     $endUl.insertBefore(parentCheckItem , $endUl.firstChild);
   }
 
-  const clickTaskDelete = e => {
+  function clickTaskDelete(e) {
     const _that = e.target;
     const parentDeleteItem = _that.closest('.task_item');
-    parentDeleteItem.remove();
+    if (window.confirm('削除しますか')) {
+      parentDeleteItem.remove();
+    } 
   }
 
   //日付の表示
-  const getDate = () => {
+  function getDate() {
     const nowDate =  new Date();
     const year = nowDate.getFullYear();
     const months = nowDate.getMonth() + 1;
@@ -97,8 +90,8 @@
   const $minutes = document.querySelector('.minutes');
   const $seconds = document.querySelector('.seconds');
 
-  const getTime = () => {
-    const nowTime = new Date()
+  function getTime() {
+    const nowTime = new Date();
     const hours = String(nowTime.getHours()).padStart(2, '0');
     const minutes = String(nowTime.getMinutes()).padStart(2 , '0');
     const seconds = String(nowTime.getSeconds()).padStart(2, '0');
@@ -107,7 +100,7 @@
     return resetTime;
   };
 
-  const repeOutputTime = () => {
+  function repeOutputTime() {
     const outputGetTime = getTime();
 
     $hours.textContent = `${outputGetTime[0] % 12}`;
@@ -124,10 +117,8 @@
   setInterval(repeOutputTime, 1000);
   
   const $dateText = document.querySelectorAll('.date_text');
-  
-  $dateText.forEach(item => {
-    item.textContent = getDate();
-  })
+
+  $dateText.forEach( item => item.textContent = getDate() );
 
   const $closeBtn = document.querySelector('.m_close');
   const $openBtn = document.querySelector('.m_open');
