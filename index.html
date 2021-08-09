@@ -28,15 +28,20 @@
   <main>
 
     <div id="container">
-
-      <ul class="menu" id="js_menu">
-        <li class="menu_item is-choice" data-menu="0">TASK</li>
-        <li class="menu_item" data-menu="1">END</li>
-      </ul>
+      
+      <div class="tab" id="js_tab">
+        <div class="tab_list">
+          <input type="radio" name="tab" id="task" value="task" class="tab_value" checked>
+          <label for="task" class="tab_label">TASK</label>
+          <input type="radio" name="tab" id="end" value="end" class="tab_value">
+          <label for="end" class="tab_label">END</label>
+          <div class="isChoice"></div>
+        </div>
+      </div>
 
       <div class="main_wrapper">
 
-        <div class="list_wrapper is-show task_wrapper" data-content="0">
+        <div class="list_wrapper task_wrapper isShow" data-content="task">
 
           <div class="task_add">
             <input class="add_list" type="text" placeholder="ADD LIST">
@@ -51,10 +56,10 @@
 
         </div>
 
-        <div class="list_wrapper end_wrapper" data-content="1">
+        <div class="list_wrapper end_wrapper" data-content="end">
 
           <p class="time">
-            <span class="ampm">PM</span>
+            <span class="ampm"></span>
             <span class="hours"></span> .
             <span class="minutes"></span>  
             <span class="seconds"></span>
